@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layouts.adminlte')
 
 @section('subtitle', 'Dashboard')
 @section('content_header_title', 'Dashboard')

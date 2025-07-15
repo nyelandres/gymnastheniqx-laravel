@@ -1,0 +1,9 @@
+/* Override active sidebar link to use AdminLTE purple */
+.nav-sidebar .nav-link.active {
+    background-color: #6f42c1 !important; /* AdminLTE's purple */
+    color: #fff !important;
+}
+
+.nav-sidebar .nav-link.active i {
+    color: #fff !important;
+}

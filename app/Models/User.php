@@ -44,4 +44,21 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+
+    public function adminlte_image()
+    {
+        // Replace with your own image logic if needed
+        return 'https://ui-avatars.com/api/?name=' . urlencode($this->name) . '&background=6f42c1&color=fff';
+    }
+
+    public function adminlte_desc()
+    {
+        return 'Member since ' . $this->created_at->format('M Y');
+    }
+
+    public function adminlte_profile_url()
+    {
+        return route('profile.edit');
+    }
 }
