@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Gymnastheniqx',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -63,12 +63,12 @@ return [
     |
     */
 
-    'logo' => '<b>Gymnastheniqx</b><br><small>Train strong train smart</small>',
-    'logo_img' => null,
-    'logo_img_class' => '',
+    'logo' => '<b>GYMNASTHENIQX</b> ',
+    'logo_img' => 'logo.png',
+    'logo_img_class' => 'brand-image img-circle elevation-3 text-sm',
     'logo_img_xl' => null,
-    'logo_img_xl_class' => '',
-    'logo_img_alt' => '',
+    'logo_img_xl_class' => 'brand-image-xs',
+    'logo_img_alt' => 'Admin Logo',
 
     /*
     |--------------------------------------------------------------------------
@@ -84,7 +84,7 @@ return [
     */
 
     'auth_logo' => [
-        'enabled' => true,
+        'enabled' => false,
         'img' => [
             'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
             'alt' => 'Auth Logo',
@@ -135,10 +135,11 @@ return [
 
     'usermenu_enabled' => true,
     'usermenu_header' => true,
-    'usermenu_header_class' => 'bg-primary',
+    'usermenu_header_class' => 'bg-purple',
     'usermenu_image' => true,
     'usermenu_desc' => true,
     'usermenu_profile_url' => true,
+    'usermenu_display_name' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -191,7 +192,7 @@ return [
     */
 
     'classes_body' => '',
-    'classes_brand' => 'brand-link bg-purple',
+    'classes_brand' => 'bg-purple',
     'classes_brand_text' => '',
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
@@ -257,7 +258,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => null,
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -301,6 +302,35 @@ return [
     'menu' => [
         // Navbar items:
         [
+            'type'         => 'navbar-notification',
+            'id'           => 'notification-bell',
+            'icon'         => 'fas fa-bell',
+            'label'        => 3, // number of notifications
+            'label_color'  => 'danger', // badge color (Bootstrap color: danger, success, etc.)
+            'url'          => '#',
+            'dropdown_mode' => true, // enables dropdown content
+            'dropdown_flabel' => 'All notifications',
+            'dropdown_footer' => [
+                'text' => 'View All',
+                'url' => 'notifications',
+            ],
+            'dropdown_items' => [
+                [
+                    'icon'    => 'fas fa-envelope mr-2',
+                    'text'    => '1 new message',
+                    'url'     => '#',
+                    'topnav'  => true,
+                ],
+                [
+                    'icon'    => 'fas fa-users mr-2',
+                    'text'    => '2 new followers',
+                    'url'     => '#',
+                    'topnav'  => true,
+                ],
+            ],
+            'topnav_right' => true, // put it on the right side
+        ],
+        [
             'type' => 'navbar-search',
             'text' => 'search',
             'topnav_right' => false,
@@ -314,15 +344,50 @@ return [
             'url' => 'admin/blog',
             'can' => 'manage-blog',
         ],
-        ['header' => 'modules'],
+        ['header' => 'Inventory'],
         [
-            'text' => 'dashboard',
+            'text' => 'Dashboard',
             'url' => 'dashboard',
             'icon' => 'fas fa-chart-line',
             // 'label' => 4,
             'label_color' => 'success',
         ],
-        ['header' => 'settings'],
+        [
+            'text' => 'Products',
+            'url' => 'products',
+            'icon' => 'fab fa-product-hunt',
+            // 'label' => 4,
+            // 'label_color' => 'success',
+        ],
+        [
+            'text' => 'Suppliers',
+            'url' => 'suppliers',
+            'icon' => 'fas fa-truck-moving',
+            // 'label' => 4,
+            // 'label_color' => 'success',
+        ],
+        [
+            'text' => 'Warehouse',
+            'url' => 'warehouse',
+            'icon' => 'fas fa-warehouse',
+            // 'label' => 4,
+            // 'label_color' => 'success',
+        ],
+        [
+            'text' => 'Invoice/Outvoice Records',
+            'url' => 'iorecords',
+            'icon' => 'fas fa-print',
+            // 'label' => 4,
+            // 'label_color' => 'success',
+        ],
+        [
+            'text' => 'Reports',
+            'url' => 'reports',
+            'icon' => 'fas fa-file-export',
+            // 'label' => 4,
+            // 'label_color' => 'success',
+        ],
+        ['header' => 'Settings'],
         [
             'text' => 'User Management',
             'url' => 'user-management',
@@ -442,7 +507,7 @@ return [
             ],
         ],
         'Chartjs' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',

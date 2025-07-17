@@ -29,10 +29,14 @@
 
     @yield('content_body')
 
+
+    @vite('resources/css/adminlte.css')
+    @vite('resources/js/app.js')
 @stop
 
 {{-- Create a common footer --}}
 @section('css')
+    <link rel="icon" type="image/png" href="{{ asset('logo.png') }}">
     {{-- <link rel="shortcut icon" href="{{ asset('vendor/adminlte/dist/img/Fixed-assets-logo.png') }}"> --}}
 @stop
 

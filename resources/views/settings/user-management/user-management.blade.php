@@ -8,67 +8,58 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header d-flex align-items-center">
-                    <div class="card-title">User Management</div>
-                    <div class="btn btn-primary text-right ml-auto">Create User</div>
+                    <div class="card-title mb-0">User Management</div>
+                    <a href="#" class="btn btn-sm btn-primary ml-auto">Create User</a>
                 </div>
                 <div class="card-body">
-                    <table id="sampleId" class="table table-bordered table-striped">
+                    <table id="sampleId" class="table-bordered table-striped w-100">
                         <thead>
                             <tr>
-                                <th>1</th>
-                                <th>2</th>
-                                <th>3</th>
-                                <th>4</th>
-                                <th>4</th>
-                                <th>4</th>
-                                <th>4</th>
-                                <th>4</th>
-                                <th>4</th>
+                                <th style="white-space: nowrap; padding: 12px">Full Name</th>
+                                <th style="white-space: nowrap; padding: 12px">Email</th>
+                                <th style="white-space: nowrap; padding: 12px">Username</th>
+                                <th style="white-space: nowrap; padding: 12px">Contact Number</th>
+                                <th style="white-space: nowrap; padding: 12px">Status</th>
+                                <th style="white-space: nowrap; padding: 12px">Date Hired</th>
+                                <th style="white-space: nowrap; padding: 12px">Role</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. At necessitatibus aliquid atque
-                                    qui vero reprehenderit ipsum perspiciatis, dicta voluptatem non facere illo incidunt
-                                    odit perferendis, repellat corporis fuga velit cupiditate praesentium! In, maxime
-                                    possimus eos illo aut quis et enim earum delectus architecto est eveniet veniam
-                                    blanditiis, adipisci vero! Reiciendis esse fugiat impedit quod eveniet dicta aliquid
-                                    laudantium libero pariatur, ad ipsam sit nam doloribus earum incidunt dolor quibusdam,
-                                    praesentium quam mollitia, exercitationem hic provident ullam! Non numquam nesciunt eos
-                                    molestiae vero! Sint enim sit fuga unde laudantium nesciunt odio obcaecati, vitae,
-                                    ratione nostrum delectus aliquid. Sint rerum et alias libero qui, impedit numquam fugit
-                                    accusantium. Iste libero voluptatem dicta. Facilis laboriosam repudiandae deserunt quod!
-                                    Alias exercitationem porro nemo nostrum voluptas et iste, id ea, nesciunt molestias in
-                                    ratione explicabo eum autem, magnam quae ut. Magni accusamus sequi, in odio quibusdam
-                                    reprehenderit hic error? Molestias nam facere, eligendi quas non alias aspernatur
-                                    commodi dolor sapiente provident, nihil, minima accusantium nisi. Dolorum hic doloremque
-                                    debitis aliquid, sed sint earum harum dignissimos dolores perferendis eaque quae
-                                    repellendus quia dolor sit ut voluptas magnam sequi architecto facilis reiciendis.
-                                    Quidem quod corrupti expedita, sit, inventore quibusdam ratione at qui consectetur unde
-                                    tempora quae soluta!</td>
-                                <td>3</td>
-                                <td>4</td>
-                                <td>4</td>
-                                <td>4</td>
-                                <td>4</td>
-                                <td>4</td>
-                                <td>4</td>
-                            </tr>
+                            @foreach ($employees as $employee)
+                                <tr>
+                                    <td>{{ $employee->full_name }}</td>
+                                    <td>{{ $employee->email }}</td>
+                                    <td>{{ $employee->username }}</td>
+                                    <td>{{ $employee->contact_number }}</td>
+                                    <td class="text-center {{ $employee->status === 'active' ? 'bg-olive' : 'bg-navy' }}">
+                                        {{ ucfirst($employee->status) }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($employee->date_hired)->toFormattedDateString() }}</td>
+                                    <td>{{ $employee->role->role_name ?? 'N/A' }}</td>
+                                    <td>
+                                        <a href="#" class="btn btn-sm btn-success">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-danger">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
-    <script>
-        $(function() {
-            let datatable = $('#sampleId').DataTable({
-                responsive: true
+
+    @push('js')
+        <script>
+            $(function() {
+                $('#sampleId').DataTable({
+                    responsive: true
+                });
             });
-
-            console.log(datatable);
-
-        });
-    </script>
+        </script>
+    @endpush
 @stop
