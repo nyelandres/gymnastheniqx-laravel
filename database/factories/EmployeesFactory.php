@@ -16,7 +16,7 @@ class EmployeesFactory extends Factory
             'full_name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
             'username' => $this->faker->unique()->userName,
-            'role_id' => Roles::inRandomOrder()->first()->id ?? Roles::factory(), // fallback if roles aren't seeded
+            'role_id' => Roles::inRandomOrder()->first()?->id, // Nullable
             'contact_number' => $this->faker->phoneNumber,
             'address' => $this->faker->address,
             'date_hired' => $this->faker->date(),

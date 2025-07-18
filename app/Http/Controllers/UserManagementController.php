@@ -12,6 +12,6 @@ class UserManagementController extends Controller
     {
         $employees = Employees::all();
 
-        return view('settings.user-management.user-management', compact('employees'));
+        return view('settings.user-management.index', compact('employees'));
     }
 }

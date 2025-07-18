@@ -16,4 +16,8 @@ class Employees extends Model
     {
         return $this->belongsTo(Roles::class, 'role_id');
     }
+    public function account()
+    {
+        return $this->hasOne(User::class, 'employee_id');
+    }
 }
