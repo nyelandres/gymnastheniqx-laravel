@@ -14,7 +14,8 @@ class DatabaseSeeder extends Seeder
         // Seed roles first, so role_id foreign key will work in other factories
         $this->call([
             // RolesSeeder::class,
-            EmployeesSeeder::class, // if you have this already
+            // EmployeesSeeder::class, // if you have this already
+            SupplierSeeder::class
         ]);
 
         // Optional user (default demo user)
