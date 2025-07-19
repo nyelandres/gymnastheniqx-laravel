@@ -23,6 +23,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         Gate::define('manage-users-deletion', function (User $user) {
             return optional($user->employee->role)->role_name === 'admin';
+            // return true;
         });
     }
 }

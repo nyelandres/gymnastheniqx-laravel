@@ -8,7 +8,8 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header d-flex align-items-center">
-                    <div class="card-title mb-0" style="letter-spacing: 1ch; text-transform: uppercase;">Employees</div>
+                    <div class="card-title mb-0" style="letter-spacing: 1ch; text-transform: uppercase;" id="title_emp">
+                        Employees</div>
                     <a href="#" class="btn btn-sm btn-primary ml-auto">Create User</a>
                 </div>
                 <div class="card-body">
@@ -25,7 +26,9 @@
                                 <th>Actions</th>
                             </tr>
                         </thead>
+
                         <tbody>
+                            {{-- {{ dd($employees) }} --}}
                             @foreach ($employees as $employee)
                                 <tr>
                                     <td>{{ $employee->full_name }}</td>
@@ -142,15 +145,6 @@
         </div>
     </div>
 
-
-    <script>
-        $('#exampleModal').on('show.bs.modal', event => {
-            var button = $(event.relatedTarget);
-            var modal = $(this);
-            // Use above variables to manipulate the DOM
-
-        });
-    </script>
     @push('js')
         <script>
             $(function() {

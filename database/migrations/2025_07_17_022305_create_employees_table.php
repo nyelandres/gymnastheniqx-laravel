@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->enum('role', ['admin', 'staff', 'cashier', 'manager']);
             $table->string('contact_number', 20)->nullable();
             $table->text('address')->nullable();
-            $table->string('position', 50)->nullable();
+            // $table->string('position', 50)->nullable();
             $table->date('date_hired')->nullable();
             $table->string('profile_photo')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
